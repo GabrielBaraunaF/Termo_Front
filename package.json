@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "electron:compile": "tsc -p electron",
+    "electron:dev": "concurrently -k -n ng,electron \"ng serve\" \"wait-on http-get://localhost:4200 && npm run electron:compile && electron . --dev\"",
+    "electron:start": "ng build --base-href ./ && npm run electron:compile && electron ."
   },
   "private": true,
   "packageManager": "npm@11.17.0",
@@ -24,7 +27,15 @@
     "@angular/build": "^22.1.5",
     "@angular/cli": "^22.1.5",
     "@angular/compiler-cli": "^22.1.0",
+    "@types/node": "^24.19.2",
+    "concurrently": "^10.0.6",
+    "electron": "^45.2.3",
     "prettier": "^3.8.1",
-    "typescript": "~6.0.2"
-  }
+    "typescript": "~6.0.2",
+    "wait-on": "^9.5.1"
+  },
+  "allowScripts": {
+    "electron@45.2.3": true
+  },
+  "main": "dist-electron/main.js"
 }
