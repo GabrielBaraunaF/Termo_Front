@@ -1,0 +1,17 @@
+<p class="heading">
+  <img src="assets/icons/live-dot.svg" width="8" height="8" alt="" />
+  <span class="eyebrow">Ao vivo</span>
+</p>
+
+@if (items().length) {
+  <ul class="items" aria-live="polite">
+    @for (item of items(); track item.id) {
+      <li class="item" [class]="'tone-' + item.tone">
+        <p class="title">{{ item.title }}</p>
+        <p class="detail">{{ item.detail }}</p>
+      </li>
+    }
+  </ul>
+} @else {
+  <p class="empty">Os palpites da partida aparecem aqui.</p>
+}

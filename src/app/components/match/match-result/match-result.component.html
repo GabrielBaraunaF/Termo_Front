@@ -1,0 +1,15 @@
+<div class="dialog card" role="dialog" aria-modal="true" aria-labelledby="result-headline">
+  <h2 id="result-headline" class="headline" [class]="tone()">{{ headline() }}</h2>
+  <p class="reason">{{ reason() }}</p>
+
+  @if (letters().length) {
+    <p class="eyebrow">A palavra era</p>
+    <div class="word">
+      @for (letter of letters(); track $index) {
+        <app-tile [letter]="letter" state="correct" />
+      }
+    </div>
+  }
+
+  <button class="btn btn-primary back" type="button" (click)="back.emit()">Voltar ao lobby</button>
+</div>

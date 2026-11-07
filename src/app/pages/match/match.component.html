@@ -1,3 +1,61 @@
-<main>
-  <h1>Partida</h1>
+@let opponent = store.match()?.opponent ?? 'Oponente';
+
+<app-top-bar
+  [matchId]="store.match()?.id ?? ''"
+  [remainingSeconds]="store.remainingSeconds()"
+  [connection]="session.connection()"
+  [latencyMs]="session.latencyMs()"
+  [canForfeit]="store.playing()"
+  (forfeit)="forfeit()"
+/>
+
+<main class="content">
+  <app-race [playerHits]="store.playerHits()" [opponentHits]="store.opponentHits()" />
+
+  <div class="arena">
+    <app-board
+      heading="Você"
+      tone="player"
+      [attempt]="store.playerAttempt()"
+      [hits]="store.playerHits()"
+      [rows]="store.playerRows()"
+      [message]="store.message()"
+      [reveal]="true"
+    />
+
+    <div class="center">
+      <span class="versus">VS</span>
+      <p class="tagline">Vence quem descobrir a palavra primeiro</p>
+      <app-opponent-typing [letters]="store.opponentTyping()" />
+      <app-live-feed class="feed" [items]="store.feed()" />
+    </div>
+
+    <app-board
+      tone="opponent"
+      [heading]="opponent"
+      [attempt]="store.opponentAttempt()"
+      [hits]="store.opponentHits()"
+      [rows]="store.opponentRows()"
+    />
+  </div>
+
+  <div class="controls">
+    <app-keyboard
+      [statuses]="store.keyStatuses()"
+      [disabled]="!store.canType()"
+      (letter)="store.type($event)"
+      (enter)="store.submit()"
+      (erase)="store.erase()"
+    />
+
+    <app-quick-reactions [disabled]="!store.playing()" (react)="store.react($event)">
+      <app-mock-controls />
+    </app-quick-reactions>
+
+    <app-protocol-log [entries]="protocol.entries()" />
+  </div>
 </main>
+
+@if (store.result(); as result) {
+  <app-match-result [result]="result" [opponent]="opponent" (back)="backToLobby()" />
+}

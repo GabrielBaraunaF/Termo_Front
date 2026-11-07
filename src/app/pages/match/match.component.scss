@@ -1,3 +1,55 @@
-main {
-  padding: 24px 40px;
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 40px 28px;
+}
+
+.arena {
+  display: grid;
+  grid-template-columns: 1fr 360px 1fr;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.versus {
+  display: grid;
+  place-items: center;
+  align-self: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--outline);
+  border-radius: 50%;
+  background: var(--card);
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.tagline {
+  margin: 12px 0 37px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--text-soft);
+}
+
+.feed {
+  flex: 1;
+  margin-top: 16px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 300px 380px;
+  gap: 20px;
 }

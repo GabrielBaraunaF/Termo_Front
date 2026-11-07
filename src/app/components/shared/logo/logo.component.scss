@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  gap: 5px;
+}
+
+.square {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.correct {
+  background: var(--correct);
+}
+
+.exists {
+  background: var(--exists);
+}
+
+.absent {
+  background: var(--absent);
+}

@@ -1,0 +1,34 @@
+:host {
+  display: block;
+  padding: 13px 15px 10px;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  background: var(--protocol-bg);
+  overflow: hidden;
+}
+
+.entries {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 19px;
+}
+
+.entry {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--protocol-text);
+
+  &:nth-child(1) {
+    color: var(--text);
+  }
+
+  &:nth-child(2) {
+    color: var(--text-soft);
+  }
+}
+
+.direction {
+  color: var(--text-faint);
+}

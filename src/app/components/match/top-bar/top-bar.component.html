@@ -1,0 +1,27 @@
+<div class="brand">
+  <app-logo />
+  <div>
+    <p class="name">Termo Duelo</p>
+    <p class="match">Partida {{ matchId() }} · os dois jogam ao mesmo tempo</p>
+  </div>
+</div>
+
+<div class="timer" role="timer">
+  <p class="eyebrow">Tempo da rodada</p>
+  <p class="clock" [class.low]="lowTime()">{{ clock() }}</p>
+</div>
+
+<div class="actions">
+  <p class="connection" [class.offline]="!online()">
+    @if (online()) {
+      <img src="assets/icons/status-dot.svg" width="8" height="8" alt="" />
+    } @else {
+      <span class="warning-dot"></span>
+    }
+    {{ connectionLabel() }}
+  </p>
+
+  <button class="btn btn-outline forfeit" type="button" [disabled]="!canForfeit()" (click)="forfeit.emit()">
+    Desistir
+  </button>
+</div>

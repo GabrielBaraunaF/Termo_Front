@@ -1,0 +1,11 @@
+@if (mock) {
+  <button
+    class="btn simulate"
+    type="button"
+    appNoMouseFocus
+    [disabled]="disabled()"
+    (click)="mock.simulateOpponentGuess()"
+  >
+    Simular: oponente envia o palpite {{ nextGuess() }}
+  </button>
+}

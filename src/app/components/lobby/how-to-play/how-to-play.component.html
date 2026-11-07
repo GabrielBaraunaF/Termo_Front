@@ -1,0 +1,10 @@
+<p class="eyebrow">Como se joga</p>
+
+<ul class="legend">
+  @for (example of examples; track example.letter) {
+    <li class="example">
+      <app-tile size="sm" [letter]="example.letter" [state]="example.state" />
+      {{ example.text }}
+    </li>
+  }
+</ul>

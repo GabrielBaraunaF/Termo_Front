@@ -1,3 +1,37 @@
-<main>
-  <h1>Lobby</h1>
-</main>
+<section class="intro">
+  <div class="brand">
+    <app-logo />
+    <p class="eyebrow">Sistemas distribuídos · jogo em rede</p>
+  </div>
+
+  <div>
+    <h1 class="title">Termo<br />Duelo</h1>
+    <p class="subtitle">
+      Duas pessoas, uma palavra secreta. Vence quem descobrir primeiro, e você acompanha o
+      progresso do oponente em tempo real.
+    </p>
+  </div>
+
+  <app-how-to-play />
+
+  <app-server-stats [stats]="session.stats()" [latencyMs]="session.latencyMs()" />
+</section>
+
+<section class="join">
+  <app-join-form
+    [status]="session.status()"
+    [error]="session.error()"
+    (join)="session.enterQueue($event)"
+  />
+
+  @if (session.status() === 'queued') {
+    <app-queue-status (leave)="session.leaveQueue()" />
+  }
+
+  @if (session.server(); as server) {
+    <p class="connection">
+      <img src="assets/icons/status-dot.svg" width="8" height="8" alt="" />
+      conectado a {{ server.host }}:{{ server.port }} · gRPC
+    </p>
+  }
+</section>

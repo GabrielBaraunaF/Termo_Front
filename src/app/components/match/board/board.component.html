@@ -1,0 +1,23 @@
+<header class="header">
+  <div>
+    <h2 class="heading">{{ heading() }}</h2>
+    <p class="attempt">Tentativa {{ attempt() }} de {{ maxAttempts }}</p>
+  </div>
+  <span class="badge">{{ hitsLabel() }}</span>
+</header>
+
+<div class="grid" role="group" [attr.aria-label]="'Tabuleiro: ' + heading()">
+  @for (row of rows(); track $index) {
+    <div class="row">
+      @for (tile of row.tiles; track $index) {
+        <app-tile [letter]="tile.letter" [state]="tile.state" [reveal]="reveal()" [revealOrder]="$index" />
+      }
+
+      @if (row.hits !== undefined) {
+        <span class="row-hits">{{ row.hits }}/{{ wordLength }}</span>
+      }
+    </div>
+  }
+</div>
+
+<p class="message" aria-live="polite">{{ message() }}</p>

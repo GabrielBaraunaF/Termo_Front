@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  gap: 48px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.value {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.label {
+  font-size: 13px;
+  color: var(--text-muted);
+}

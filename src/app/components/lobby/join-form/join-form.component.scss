@@ -1,0 +1,97 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 520px;
+  padding: 32px;
+  border-radius: 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.port {
+  flex: 0 0 140px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+
+.input {
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  background: var(--bg);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.15s;
+
+  &::placeholder {
+    color: var(--text-faint);
+  }
+
+  &:focus {
+    border-color: var(--tile-typing-border);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+
+  &.ng-invalid.ng-touched {
+    border-color: var(--danger);
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+  }
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.error {
+  font-size: 13px;
+  color: var(--danger);
+}

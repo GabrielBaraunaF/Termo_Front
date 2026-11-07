@@ -1,0 +1,27 @@
+<p class="eyebrow">Corrida</p>
+
+@for (lane of lanes(); track lane.tone) {
+  <div class="lane" [class]="'tone-' + lane.tone">
+    <span class="label">{{ lane.label }}</span>
+
+    <div
+      class="track"
+      role="progressbar"
+      aria-valuemin="0"
+      [attr.aria-valuemax]="max"
+      [attr.aria-valuenow]="lane.hits"
+      [attr.aria-label]="'Progresso: ' + lane.label"
+    >
+      <div class="fill" [style.width.%]="lane.percent"></div>
+      <span class="knob" [style.left.%]="lane.percent">{{ lane.initial }}</span>
+    </div>
+
+    <span class="count">{{ lane.hits }}/{{ max }}</span>
+  </div>
+}
+
+<div class="columns">
+  @for (column of columns; track column) {
+    <span>{{ column }}ª letra</span>
+  }
+</div>

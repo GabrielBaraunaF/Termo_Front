@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  padding: 13px 15px;
+  border-radius: 14px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--opponent);
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.caption {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+}

@@ -1,0 +1,12 @@
+<p class="eyebrow">Protocolo · mensagens ao vivo</p>
+
+<ol class="entries" aria-label="Mensagens trocadas com o servidor">
+  @for (entry of entries(); track entry.id) {
+    <li class="entry">
+      <span class="direction" [attr.title]="entry.direction === 'out' ? 'enviada' : 'recebida'">
+        {{ entry.direction === 'out' ? '→' : '←' }}
+      </span>
+      {{ entry.kind }} {{ entry.details }}
+    </li>
+  }
+</ol>

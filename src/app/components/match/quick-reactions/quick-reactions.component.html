@@ -1,0 +1,17 @@
+<p class="eyebrow">Reações rápidas</p>
+
+<div class="chips">
+  @for (reaction of reactions; track reaction) {
+    <button
+      class="btn btn-outline chip"
+      type="button"
+      appNoMouseFocus
+      [disabled]="disabled()"
+      (click)="react.emit(reaction)"
+    >
+      {{ reaction }}
+    </button>
+  }
+</div>
+
+<ng-content />

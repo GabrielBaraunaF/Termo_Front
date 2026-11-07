@@ -1,0 +1,45 @@
+<header class="header">
+  <h2 class="title">Entrar numa partida</h2>
+  <p class="description">
+    Diga onde o servidor está rodando e como você quer aparecer para o oponente.
+  </p>
+</header>
+
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="row">
+    <label class="field">
+      <span class="label">Endereço do servidor</span>
+      <input
+        class="input mono"
+        formControlName="host"
+        placeholder="192.168.0.10"
+        autocomplete="off"
+        spellcheck="false"
+      />
+    </label>
+
+    <label class="field port">
+      <span class="label">Porta</span>
+      <input class="input mono" formControlName="port" type="number" inputmode="numeric" />
+    </label>
+  </div>
+
+  <label class="field">
+    <span class="label">Apelido</span>
+    <input
+      class="input"
+      formControlName="nickname"
+      placeholder="Como você quer aparecer?"
+      maxlength="16"
+      autocomplete="off"
+    />
+  </label>
+
+  @if (error()) {
+    <p class="error" role="alert">{{ error() }}</p>
+  }
+
+  <button class="btn btn-primary" type="submit" [disabled]="form.invalid || busy()">
+    {{ buttonLabel() }}
+  </button>
+</form>

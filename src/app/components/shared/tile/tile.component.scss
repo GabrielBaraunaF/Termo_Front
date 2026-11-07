@@ -1,0 +1,77 @@
+:host {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  user-select: none;
+}
+
+:host(.sm) {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+}
+
+:host(.empty) {
+  border-color: var(--tile-empty-border);
+}
+
+:host(.typing) {
+  border-color: var(--tile-typing-border);
+}
+
+:host(.hidden) {
+  background: var(--tile-hidden-bg);
+  border-color: var(--tile-hidden-border);
+  color: var(--opponent);
+  font-size: 20px;
+}
+
+:host(.correct) {
+  background: var(--correct);
+  color: var(--text-on-correct);
+}
+
+:host(.exists) {
+  background: var(--exists);
+  color: var(--text-on-exists);
+}
+
+:host(.absent) {
+  background: var(--absent);
+}
+
+:host(.reveal.correct),
+:host(.reveal.exists),
+:host(.reveal.absent) {
+  animation: reveal 0.5s ease both;
+}
+
+@keyframes reveal {
+  0% {
+    transform: rotateX(0);
+    background: transparent;
+    border-color: var(--tile-typing-border);
+    color: var(--text);
+  }
+
+  49% {
+    background: transparent;
+    border-color: var(--tile-typing-border);
+    color: var(--text);
+  }
+
+  50% {
+    transform: rotateX(90deg);
+  }
+
+  100% {
+    transform: rotateX(0);
+  }
+}

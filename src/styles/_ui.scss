@@ -1,0 +1,64 @@
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tone-player {
+  --tone: var(--player);
+}
+
+.tone-opponent {
+  --tone: var(--opponent);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    filter 0.15s,
+    border-color 0.15s,
+    opacity 0.15s;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.btn-primary {
+  height: 56px;
+  border-radius: 12px;
+  background: var(--player);
+  color: var(--bg);
+  font-size: 17px;
+  font-weight: 600;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.08);
+  }
+}
+
+.btn-outline {
+  height: 44px;
+  padding: 0 16px;
+  border-color: var(--outline);
+
+  &:hover:not(:disabled) {
+    border-color: var(--tile-typing-border);
+  }
+}

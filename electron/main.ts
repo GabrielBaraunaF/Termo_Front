@@ -1,15 +1,19 @@
-import { app, BrowserWindow, shell } from 'electron';
+import { app, BrowserWindow, screen, shell } from 'electron';
 import { join } from 'node:path';
 
 const isDev = process.argv.includes('--dev');
 const DEV_URL = 'http://localhost:4200';
+const DESIGN_WIDTH = 1440;
+const DESIGN_HEIGHT = 900;
 
 function createWindow() {
+  const workArea = screen.getPrimaryDisplay().workAreaSize;
+
   const window = new BrowserWindow({
-    width: 1440,
-    height: 900,
-    minWidth: 1280,
-    minHeight: 800,
+    width: Math.min(DESIGN_WIDTH, workArea.width),
+    height: Math.min(DESIGN_HEIGHT, workArea.height),
+    minWidth: 960,
+    minHeight: 600,
     backgroundColor: '#15161b',
     title: 'Termo Duelo',
     autoHideMenuBar: true,
@@ -22,6 +26,13 @@ function createWindow() {
     },
   });
 
+  const fitToWindow = () => {
+    const [width, height] = window.getContentSize();
+    window.webContents.setZoomFactor(Math.min(width / DESIGN_WIDTH, height / DESIGN_HEIGHT));
+  };
+
+  window.on('resize', fitToWindow);
+  window.webContents.on('did-finish-load', fitToWindow);
   window.once('ready-to-show', () => window.show());
 
   window.webContents.setWindowOpenHandler(({ url }) => {

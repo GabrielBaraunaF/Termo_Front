@@ -1,0 +1,42 @@
+@for (row of rows; track $index; let last = $last) {
+  <div class="row">
+    @if (last) {
+      <button
+        class="key wide"
+        type="button"
+        appNoMouseFocus
+        [disabled]="disabled()"
+        (click)="enter.emit()"
+      >
+        Enter
+      </button>
+    }
+
+    @for (key of row; track key) {
+      <button
+        class="key"
+        type="button"
+        appNoMouseFocus
+        [class]="keyClass(key)"
+        [attr.aria-label]="keyLabel(key)"
+        [disabled]="disabled()"
+        (click)="letter.emit(key)"
+      >
+        {{ key }}
+      </button>
+    }
+
+    @if (last) {
+      <button
+        class="key wide"
+        type="button"
+        appNoMouseFocus
+        aria-label="Apagar"
+        [disabled]="disabled()"
+        (click)="erase.emit()"
+      >
+        ⌫
+      </button>
+    }
+  </div>
+}

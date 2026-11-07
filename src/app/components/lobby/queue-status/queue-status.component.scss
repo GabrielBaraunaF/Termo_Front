@@ -1,0 +1,34 @@
+:host {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 520px;
+  padding: 20px 24px;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+.text {
+  flex: 1;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.description {
+  max-width: 250px;
+  margin-top: 3px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-muted);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

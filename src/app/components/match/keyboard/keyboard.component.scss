@@ -1,0 +1,54 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 14px;
+}
+
+.row {
+  display: flex;
+  gap: 6px;
+}
+
+.key {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--outline);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    filter 0.15s;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.15);
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.wide {
+  width: 63px;
+  font-size: 13px;
+}
+
+.correct {
+  background: var(--correct);
+}
+
+.exists {
+  background: var(--exists);
+  color: var(--text-on-exists);
+}
+
+.absent {
+  background: var(--key-absent);
+  color: var(--text-faint);
+}
