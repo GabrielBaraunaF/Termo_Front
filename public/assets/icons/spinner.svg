@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Spinner">
+<circle id="Spinner_2" cx="14" cy="14" r="12.5" stroke-width="3" stroke="#33363F"/>
+<path id="Spinner arco" d="M14 0C15.8385 -8.03637e-08 17.659 0.362121 19.3576 1.06569C21.0561 1.76925 22.5995 2.80048 23.8995 4.1005C25.1995 5.40053 26.2307 6.94387 26.9343 8.64243C27.6379 10.341 28 12.1615 28 14H25.48C25.48 12.4924 25.1831 10.9996 24.6061 9.60679C24.0292 8.21398 23.1836 6.94843 22.1176 5.88241C21.0516 4.8164 19.786 3.97079 18.3932 3.39386C17.0004 2.81694 15.5076 2.52 14 2.52V0Z" fill="#8E9BFF"/>
+</g>
+</svg>
